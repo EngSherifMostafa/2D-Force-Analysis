@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnCalculate = new System.Windows.Forms.Button();
             this.rbKg = new System.Windows.Forms.RadioButton();
             this.rbNewton = new System.Windows.Forms.RadioButton();
@@ -78,7 +79,7 @@
             this.rbKg.Location = new System.Drawing.Point(244, 425);
             this.rbKg.Name = "rbKg";
             this.rbKg.Size = new System.Drawing.Size(45, 21);
-            this.rbKg.TabIndex = 7;
+            this.rbKg.TabIndex = 12;
             this.rbKg.Text = "Kg";
             this.rbKg.UseVisualStyleBackColor = true;
             // 
@@ -90,7 +91,7 @@
             this.rbNewton.Location = new System.Drawing.Point(244, 398);
             this.rbNewton.Name = "rbNewton";
             this.rbNewton.Size = new System.Drawing.Size(76, 21);
-            this.rbNewton.TabIndex = 6;
+            this.rbNewton.TabIndex = 11;
             this.rbNewton.TabStop = true;
             this.rbNewton.Text = "Newton";
             this.rbNewton.UseVisualStyleBackColor = true;
@@ -143,7 +144,7 @@
             this.txtWeight.Location = new System.Drawing.Point(138, 404);
             this.txtWeight.Name = "txtWeight";
             this.txtWeight.Size = new System.Drawing.Size(100, 28);
-            this.txtWeight.TabIndex = 5;
+            this.txtWeight.TabIndex = 13;
             this.txtWeight.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtWeight.TextChanged += new System.EventHandler(this.txtWeight_TextChanged);
             // 
@@ -286,7 +287,7 @@
             this.txtRightOpposite.Location = new System.Drawing.Point(718, 157);
             this.txtRightOpposite.Name = "txtRightOpposite";
             this.txtRightOpposite.Size = new System.Drawing.Size(51, 28);
-            this.txtRightOpposite.TabIndex = 10;
+            this.txtRightOpposite.TabIndex = 4;
             this.txtRightOpposite.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRightOpposite.TextChanged += new System.EventHandler(this.txtRightOpposite_TextChanged);
             // 
@@ -297,7 +298,7 @@
             this.txtRightAdjacent.Location = new System.Drawing.Point(718, 190);
             this.txtRightAdjacent.Name = "txtRightAdjacent";
             this.txtRightAdjacent.Size = new System.Drawing.Size(51, 28);
-            this.txtRightAdjacent.TabIndex = 9;
+            this.txtRightAdjacent.TabIndex = 5;
             this.txtRightAdjacent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRightAdjacent.TextChanged += new System.EventHandler(this.txtRightAdjacent_TextChanged);
             // 
@@ -308,7 +309,7 @@
             this.txtRightHypotenuse.Location = new System.Drawing.Point(718, 224);
             this.txtRightHypotenuse.Name = "txtRightHypotenuse";
             this.txtRightHypotenuse.Size = new System.Drawing.Size(51, 28);
-            this.txtRightHypotenuse.TabIndex = 8;
+            this.txtRightHypotenuse.TabIndex = 6;
             this.txtRightHypotenuse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRightHypotenuse.TextChanged += new System.EventHandler(this.txtRightHypotenuse_TextChanged);
             // 
@@ -331,7 +332,7 @@
             this.chkLeftTri.Location = new System.Drawing.Point(11, 128);
             this.chkLeftTri.Name = "chkLeftTri";
             this.chkLeftTri.Size = new System.Drawing.Size(127, 21);
-            this.chkLeftTri.TabIndex = 4;
+            this.chkLeftTri.TabIndex = 7;
             this.chkLeftTri.Text = "Triangle System";
             this.chkLeftTri.UseVisualStyleBackColor = true;
             this.chkLeftTri.CheckedChanged += new System.EventHandler(this.chkLeftTri_CheckedChanged);
@@ -343,7 +344,7 @@
             this.txtLeftOpposite.Location = new System.Drawing.Point(71, 163);
             this.txtLeftOpposite.Name = "txtLeftOpposite";
             this.txtLeftOpposite.Size = new System.Drawing.Size(52, 28);
-            this.txtLeftOpposite.TabIndex = 13;
+            this.txtLeftOpposite.TabIndex = 8;
             this.txtLeftOpposite.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLeftOpposite.TextChanged += new System.EventHandler(this.txtLeftOpposite_TextChanged);
             // 
@@ -354,7 +355,7 @@
             this.txtLeftAdjacent.Location = new System.Drawing.Point(71, 197);
             this.txtLeftAdjacent.Name = "txtLeftAdjacent";
             this.txtLeftAdjacent.Size = new System.Drawing.Size(52, 28);
-            this.txtLeftAdjacent.TabIndex = 12;
+            this.txtLeftAdjacent.TabIndex = 9;
             this.txtLeftAdjacent.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLeftAdjacent.TextChanged += new System.EventHandler(this.txtLeftAdjacent_TextChanged);
             // 
@@ -365,7 +366,7 @@
             this.txtLeftHypotenuse.Location = new System.Drawing.Point(71, 231);
             this.txtLeftHypotenuse.Name = "txtLeftHypotenuse";
             this.txtLeftHypotenuse.Size = new System.Drawing.Size(52, 28);
-            this.txtLeftHypotenuse.TabIndex = 11;
+            this.txtLeftHypotenuse.TabIndex = 10;
             this.txtLeftHypotenuse.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLeftHypotenuse.TextChanged += new System.EventHandler(this.txtLeftHypotenuse_TextChanged);
             // 
@@ -404,6 +405,7 @@
             this.Controls.Add(this.rbKg);
             this.Controls.Add(this.btnCalculate);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "2D Force Analysis";
