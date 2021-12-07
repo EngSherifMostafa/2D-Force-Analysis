@@ -7,14 +7,13 @@ namespace _2DForceAnalysis
 {
     public partial class FrmMain : Form
     {
-        public FrmMain() => InitializeComponent();
-
         #region variables
         private double
             _rightAngleValue, _leftAngleValue, _weightValue,
             _rightOpposite, _rightAdjacent, _rightHypotenuse,
             _leftOpposite, _leftAdjacent, _leftHypotenuse;
         #endregion
+        public FrmMain() => InitializeComponent();
         #region Drawing
         private void FrmMain_Shown(object sender, EventArgs e)
         {
@@ -270,22 +269,46 @@ namespace _2DForceAnalysis
             }
         }
         #endregion
-
+        #region Calculate
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             //level 1: check value [ value in Kg = value * 9.8 ]
             if (rbKg.Checked)
                 _weightValue *= 9.8;
 
+            //calculating unknown side in right triangle
             if (chkRightTri.Checked)
             {
+                if (txtRightOpposite.Text == "" && txtRightAdjacent.Text != "" && txtRightHypotenuse.Text != "")
+                    txtRightOpposite.Text = (Math.Sqrt(Math.Pow(_rightHypotenuse, 2) - Math.Pow(_rightAdjacent, 2))).ToString();
+                if (txtRightOpposite.Text != "" && txtRightAdjacent.Text == "" && txtRightHypotenuse.Text != "")
+                    txtRightAdjacent.Text = (Math.Sqrt(Math.Pow(_rightHypotenuse, 2) - Math.Pow(_rightOpposite, 2))).ToString();
+                if (txtRightOpposite.Text != "" && txtRightAdjacent.Text != "" && txtRightHypotenuse.Text == "")
+                    txtRightHypotenuse.Text = (Math.Sqrt(Math.Pow(_rightOpposite, 2) + Math.Pow(_rightAdjacent, 2))).ToString();
+
                 _rightAngleValue = Math.Atan(_rightOpposite / _rightAdjacent);
                 _rightAngleValue *= 180 / Math.PI;
             }
+
+            //calculating unknown side in left triangle
             if (chkLeftTri.Checked)
             {
+                if (txtLeftOpposite.Text == "" && txtLeftAdjacent.Text != "" && txtLeftHypotenuse.Text != "")
+                    txtLeftOpposite.Text = (Math.Sqrt(Math.Pow(_leftHypotenuse, 2) - Math.Pow(_leftAdjacent, 2))).ToString();
+                if (txtLeftOpposite.Text != "" && txtLeftAdjacent.Text == "" && txtLeftHypotenuse.Text != "")
+                    txtLeftAdjacent.Text = (Math.Sqrt(Math.Pow(_leftHypotenuse, 2) - Math.Pow(_leftOpposite, 2))).ToString();
+                if (txtLeftOpposite.Text != "" && txtLeftAdjacent.Text != "" && txtLeftHypotenuse.Text == "")
+                    txtLeftHypotenuse.Text = (Math.Sqrt(Math.Pow(_leftOpposite, 2) + Math.Pow(_leftAdjacent, 2))).ToString();
+
                 _leftAngleValue = Math.Atan(_leftOpposite / _leftAdjacent);
                 _leftAngleValue *= 180 / Math.PI;
+            }
+
+            if (_rightAngleValue <= 0 || _leftAngleValue <= 0 || _weightValue <= 0)
+            {
+                txtForce1Val.Text = "";
+                txtForce2Val.Text = "";
+                return;
             }
 
             var result = Solver.Elimination(_rightAngleValue, _leftAngleValue, _weightValue);
@@ -294,5 +317,6 @@ namespace _2DForceAnalysis
 
             _weightValue = Convert.ToDouble(txtWeight.Text);
         }
+        #endregion
     }
 }
